@@ -1,4 +1,4 @@
-from boggle.attacks.playing import a_simulate
+from boggle.attacks.helper.playing import a_simulate
 from boggle.utils import callback
 import asyncio
 import nest_asyncio

@@ -12,23 +12,58 @@ BoggleAttack is a research tool inspired by the word game Boggle, designed to pr
 2. Weaken maliciousness if the model refuses to answer.
 3. Enhance maliciousness if the model does not refuse.
 - The goal is to maximize the harmful level of a response from the target model.
+
+### Set Env Variables
+
+create and set the variables
+
+```bash
+$ touch .env
+```
+
+**Example**
+
+```
+EVALUATE_MODEL=gemini-2.5-flash
+TARGET_MODEL=gemini-2.5-flash
+MAXROUNDS=3
+ALPHA=0.7
+WIDTH=4
+MAXCON=2
+```
+
+
+
 ### Project Structure
-- main.py: Main entry point. Runs attack simulations in "tree" or "liner" mode.
-- playing.py: Core logic for simulating attacks and managing rounds.
-- schema.py: Data models for attack, refusal, and scoring.
-- template.py: Prompt templates for rephrasing and attacking.
-- utils.py: Utility functions and tree node management.
-- model_list.py: Supported model configurations.
-- sentence.py: List of target prompts for attack.
-- openai_model.py: Model interface and API handling.
+.
+├── poetry.lock
+├── pyproject.toml
+├── README.md
+└── src
+    └── boggle
+        ├── attacks
+        │   ├── helper
+        │   │   ├── playing.py
+        │   │   ├── schema.py
+        │   │   └── template.py
+        │   └── main.py
+        ├── configs
+        │   ├── model_list.py
+        │   └── sentence.py
+        ├── models
+        │   └── openai_model.py
+        └── utils.py
+
 
 ### How to Run
 
-1. Install dependencies (see requirements.txt if available).
+1. Install dependencies (see pyproject.toml).
 2. Run the main attack script:
 
-```python
-python boggle/attacks/main.py --mode tree
+```
+$ cd boggle
+$ poetry install
+$ poetry run python src/boggle/attacks/main.py
 ```
 - Use --mode liner for linear attack mode.
 
