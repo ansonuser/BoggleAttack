@@ -35,6 +35,7 @@ MAXCON=2
 
 
 ### Project Structure
+```
 .
 ├── poetry.lock
 ├── pyproject.toml
@@ -53,6 +54,7 @@ MAXCON=2
         ├── models
         │   └── openai_model.py
         └── utils.py
+```
 
 
 ### How to Run
